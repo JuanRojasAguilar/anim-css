@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 2px solid red;
+}
+
+#anim {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: url('./images/landscape.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#anim > * {
+    position: absolute;
+}
+
+#sol {
+    background: url('./images/sun.png');
+    
+    width: 200px;
+    height: 150px;
+    right: 0;
+}
+
