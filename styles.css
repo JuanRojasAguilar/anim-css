@@ -2,27 +2,148 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: 2px solid red;
+}
+
+http {
+    font-size: 62.5%;
 }
 
 #anim {
     position: relative;
     height: 100vh;
     width: 100vw;
-    background: url('./images/landscape.jpeg');
+    background-image: url('./images/landscape.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 #anim > * {
     position: absolute;
 }
 
+#mensajes {
+    font-size: 3rem;
+    top: 50%;
+    left: 35%;
+    opacity: 0;
+    animation: show-message 2s 10s ease-in-out infinite;
+}
+
+#nube {
+    background: url('./images/cloud.webp');
+    z-index: 3;
+    width: 300px;
+    height: 200px;
+    right: -300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: enter-cloud 7s 3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+#lluvia {
+    position: absolute;
+    z-index: 2;
+    background: url('./images/droplets.png');
+    background-size: contain;
+    width: 250px;
+    height: 100vh;
+    opacity: 0;
+    top: 150px;
+    animation: rain 7s 3s ease-in;
+}
+
 #sol {
     background: url('./images/sun.png');
-    
+    z-index: 1;
     width: 200px;
-    height: 150px;
+    height: 200px;
     right: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: spark-sun 2s 9s ease-in-out infinite;
+}
+
+#flor {
+    background: url('./images/flowe.png');
+    width: 300px;
+    height: 300px;
+    bottom: -300px;
+    right: calc(50% - 150px);
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: grow-flower 100s 9s ease-in;
+}
+
+
+@keyframes enter-cloud {
+    0% {
+        right: -300px;
+    }
+    30% {
+        right: calc(50vw - 150px);
+    }
+    80% {
+        right: calc(50vw - 150px);
+    }
+    100% {
+        right: calc(100vw + 150px);
+    }
+}
+
+@keyframes spark-sun {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes grow-flower {
+    0% {
+        bottom: -300px;
+    }
+    1% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes rain {
+    0% {
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+        background-position: bottom;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show-message {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
