@@ -23,11 +23,15 @@ http {
 }
 
 #mensajes {
-    font-size: 3rem;
+    font-size: 3.2rem;
+    z-index: 3;
     top: 50%;
-    left: 35%;
-    opacity: 0;
-    animation: show-message 2s 10s ease-in-out infinite;
+    left: calc(50% - 3.2rem);
+}
+
+#mensajes::after {
+    content: "";
+    animation: show-message 10s steps(4) forwards;
 }
 
 #nube {
@@ -74,7 +78,7 @@ http {
     right: calc(50% - 150px);
     background-size: contain;
     background-repeat: no-repeat;
-    animation: grow-flower 100s 9s ease-in;
+    animation: grow-flower 1s 9s forwards ease-in;
 }
 
 
@@ -109,17 +113,12 @@ http {
     0% {
         bottom: -300px;
     }
-    1% {
-        bottom: 0;
-    }
     100% {
         bottom: 0;
     }
 }
 
 @keyframes rain {
-    0% {
-    }
     30% {
         opacity: 0;
     }
@@ -137,13 +136,22 @@ http {
 
 @keyframes show-message {
     0% {
-        opacity: 0;
+        content: "3";
     }
-    50% {
-        opacity: 1;
+    10% {
+        content: "2";
+    }
+    20% {
+        content: "1";
+    }
+    30% {
+        content: "";
+    }
+    99% {
+        content: "";
     }
     100% {
-        opacity: 0;
+        content: "Que bello y hermoso dia";
     }
 }
 
