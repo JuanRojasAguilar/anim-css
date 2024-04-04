@@ -26,12 +26,13 @@ http {
     font-size: 3.2rem;
     z-index: 3;
     top: 50%;
-    left: calc(50% - 3.2rem);
+    left: calc(50% - 4rem);
 }
 
 #mensajes::after {
     content: "";
-    animation: show-message 10s steps(4) forwards;
+    animation: show-message 10s steps(4) forwards,
+        spark-message 2s 10s ease-in-out infinite;
 }
 
 #nube {
@@ -67,7 +68,7 @@ http {
     right: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    animation: spark-sun 2s 9s ease-in-out infinite;
+    animation: spark-sun 2s 10s ease-in-out infinite;
 }
 
 #flor {
@@ -155,3 +156,14 @@ http {
     }
 }
 
+@keyframes spark-message {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
